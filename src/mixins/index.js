@@ -1,6 +1,6 @@
 import { Chart } from 'frappe-charts'
 
-export default {
+export const mixin = {
     props: {
         id: {
             required: true,
