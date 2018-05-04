@@ -8,10 +8,16 @@ export const mixin = {
             default: null
         },
 
-        dataSet: {
+        dataSets: {
             required: true,
             type: Array,
-            default: []
+            default: () => []
+        },
+
+        labels: {
+            required: true,
+            type: Array,
+            default: () => []
         },
 
         title: {
@@ -34,18 +40,9 @@ export const mixin = {
         colors: {
             required: false,
             type: Array,
-            default: [
+            default: () => [
                 'purple', '#ffa3ef', 'light-blue'
             ]
-        },
-
-        tooltipOptions: {
-            required: false,
-            type: Object,
-            default: {
-                formatTooltipX: d => (d + '').toUpperCase(),
-                formatTooltipY: d => d + ' pts',
-            }
         },
 
         isNavigable: {
@@ -63,31 +60,37 @@ export const mixin = {
         barOptions: {
             required: false,
             type: Object,
-            default: {
-                spaceRatio: 0.5,
-                stacked: 0
+            default: () => {
+                return {
+                    spaceRatio: 0.5,
+                    stacked: 0
+                }
             }
         },
 
         lineOptions: {
-            required: true,
+            required: false,
             type: Object,
-            default: {
-                dotSize: 4,
-                hideLine: 0,
-                hideDots: 0,
-                heatline: 0,
-                regionFill: 0
+            default: () => {
+                return {
+                    dotSize: 4,
+                    hideLine: 0,
+                    hideDots: 0,
+                    heatline: 0,
+                    regionFill: 0
+                }
             }
         },
 
         axisOptions: {
             required: false,
             type: Object,
-            default: {
-                yAxisMode: '',
-                xAxisMode: '',
-                xIsSeries: 0
+            default: () => {
+                return {
+                    yAxisMode: '',
+                    xAxisMode: '',
+                    xIsSeries: 0
+                }
             }
         },
 
@@ -106,9 +109,11 @@ export const mixin = {
         barOptions: {
             required: false,
             type: Object,
-            default: {
-                height: 20,
-                depth: 2
+            default: () => {
+                return {
+                    height: 20,
+                    depth: 2
+                }
             }
         },
 
@@ -118,6 +123,12 @@ export const mixin = {
             default: true
         }
     },
+    
+    data () {
+        return {
+            chart: null
+        }
+    },
 
     mounted () {
         this.startChart()
@@ -125,9 +136,48 @@ export const mixin = {
 
     methods: {
         startChart () {
-            
+            this.chart = new Chart(`#${this.id}`, {
+                data: {
+                    labels: this.labels,
+                    datasets: this.dataSets
+                },
+                title: this.title,
+                colors: this.colors,
+                height: this.height,
+                tooltipOptions: {
+                    formatTooltipX: d => (d + '').toUpperCase(),
+                    formatTooltipY: d => d + ' pts',
+                },
+                isNavigable: this.isNavigable,
+                valuesOverPoints: this.valuesOverPoints,
+                barOptions: this.barOptions,
+                lineOptions: this.lineOptions,
+                axisOptions: this.axisOptions,
+                maxLegendPoints: this.maxLegendPoints,
+                maxSlices: this.maxSlices,
+                barOptions: this.barOptions,
+                discreteDomains: this.discreteDomains
+            })
+        },
 
-            Chart.export()
+        export () {
+            this.chart.export()
+        },
+
+        addDataPoint (label, valueFromEachDataset, index) {
+            this.chart.addDataPoint(label, valueFromEachDataset, index)
+        },
+
+        removeDataPoint (index) {
+            this.chart.removeDataPoint(index)
+        },
+
+        updateDataset (datasetValues, index) {
+            this.chart.updateDataset(datasetValues, index)
+        },
+
+        unbindWindowEvents () {
+            this.chart.unbindWindowEvents()
         }
     }
 }
