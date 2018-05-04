@@ -1,1 +1,1 @@
-export { default as ChartComponent } from './Chart'
+export { default as Chart } from './Chart'
