@@ -37,6 +37,35 @@ export const mixin = {
             default: 'bar'
         },
 
+        yMarkers: {
+            required: false,
+            type: Array,
+            default: () => [
+                {
+                    label: 'Marker',
+                    value: 70,
+                    options: {
+                        labelPos: 'left'
+                    }
+                }
+            ]
+        },
+
+        yRegions: {
+            required: false,
+            type: Array,
+            default: () => [
+                {
+                    label: 'Region',
+                    start: -10,
+                    end: 50,
+                    options: {
+                        labelPos: 'right'
+                    }
+                }
+            ]
+        },
+
         colors: {
             required: false,
             type: Array,
