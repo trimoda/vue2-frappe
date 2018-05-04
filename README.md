@@ -1,3 +1,5 @@
+# Vue 2 Frappe Charts
+
 <p align="center">
     <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer">
         <img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo">
@@ -7,7 +9,8 @@
     </a>
 </p>
 
-# Vue 2 Frappe Charts
+
+[![npm version](https://badge.fury.io/js/vue2-frappe.svg)](https://badge.fury.io/js/vue2-frappe)
 
 This is a simple package to get using Frappe Charts within VueJS
 
@@ -64,4 +67,5 @@ Then in our Vue templates:
 ### Links
 
 [Frappe Charts](https://github.com/frappe/charts)
+
 [Vue JS](https://vuejs.org/)
