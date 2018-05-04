@@ -155,7 +155,11 @@ export const mixin = {
     
     data () {
         return {
-            chart: null
+            chart: null,
+            data: {
+                labels: this.labels,
+                datasets: this.dataSets
+            }
         }
     },
 
@@ -166,10 +170,7 @@ export const mixin = {
     methods: {
         startChart () {
             this.chart = new Chart(`#${this.id}`, {
-                data: {
-                    labels: this.labels,
-                    datasets: this.dataSets
-                },
+                data: this.data,
                 title: this.title,
                 colors: this.colors,
                 height: this.height,

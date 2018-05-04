@@ -4,9 +4,9 @@
   "description": "A Vue 2 integration using Frappe Charts",
   "main": "src/index.js",
   "repository": "https://www.github.com/JustSteveKing/vue2-frappe",
-  "author": "JustSteveKing <juststeveking@gmail.com>",
+  "author": "juststeveking <juststeveking@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "frappe-charts": "^1.1.0"
   }
