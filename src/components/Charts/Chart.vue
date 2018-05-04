@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import { mixin } from './../mixins'
+    import { mixin } from './../../mixins'
 
     export default {
         mixins: [
