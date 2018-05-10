@@ -1,4 +1,4 @@
-import { Chart } from 'frappe-charts'
+import { Chart } from 'frappe-charts/dist/frappe-charts.min.esm'
 
 export const mixin = {
     props: {
