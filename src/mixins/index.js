@@ -150,6 +150,17 @@ export const mixin = {
             required: false,
             type: Boolean,
             default: true
+        },
+
+        tooltipOptions: {
+            required: false,
+            type: Object,
+            default: () => {
+                return {
+                    formatTooltipX: d => (d + '').toUpperCase(),
+                    formatTooltipY: d => d + ' pts'
+                }
+            }
         }
     },
     
@@ -174,10 +185,7 @@ export const mixin = {
                 title: this.title,
                 colors: this.colors,
                 height: this.height,
-                tooltipOptions: {
-                    formatTooltipX: d => (d + '').toUpperCase(),
-                    formatTooltipY: d => d + ' pts',
-                },
+                tooltipOptions: this.tooltipOptions,
                 isNavigable: this.isNavigable,
                 valuesOverPoints: this.valuesOverPoints,
                 barOptions: this.barOptions,
