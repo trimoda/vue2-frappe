@@ -1,6 +1,6 @@
 {
   "name": "vue2-frappe",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A Vue 2 integration using Frappe Charts",
   "main": "src/index.js",
   "repository": "https://www.github.com/JustSteveKing/vue2-frappe",
