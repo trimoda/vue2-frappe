@@ -182,6 +182,7 @@ export const mixin = {
         startChart () {
             this.chart = new Chart(`#${this.id}`, {
                 data: this.data,
+                type: this.type,
                 title: this.title,
                 colors: this.colors,
                 height: this.height,
