@@ -106,7 +106,8 @@ export const mixin = {
                     hideLine: 0,
                     hideDots: 0,
                     heatline: 0,
-                    regionFill: 0
+                    regionFill: 0,
+                    areaFill: 0
                 }
             }
         },
