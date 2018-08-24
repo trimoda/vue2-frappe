@@ -9,15 +9,39 @@ export const mixin = {
         },
 
         dataSets: {
-            required: true,
+            required: false,
             type: Array,
             default: () => []
         },
 
         labels: {
-            required: true,
+            required: false,
             type: Array,
             default: () => []
+        },
+
+        startDate: {
+            required: false,
+            type: Date,
+            default: null
+        },
+
+        endDate: {
+            required: false,
+            type: Date,
+            default: null
+        },
+
+        dataPoints: {
+            required: false,
+            type: Object,
+            default: () => {}
+        },
+
+        countLabel: {
+            required: false,
+            type: String,
+            default: 'Count'
         },
 
         title: {
@@ -86,17 +110,6 @@ export const mixin = {
             default: false
         },
 
-        barOptions: {
-            required: false,
-            type: Object,
-            default: () => {
-                return {
-                    spaceRatio: 0.5,
-                    stacked: 0
-                }
-            }
-        },
-
         lineOptions: {
             required: false,
             type: Object,
@@ -142,7 +155,9 @@ export const mixin = {
             default: () => {
                 return {
                     height: 20,
-                    depth: 2
+                    depth: 2,
+                    spaceRatio: 0.5,
+                    stacked: 0
                 }
             }
         },
@@ -171,6 +186,12 @@ export const mixin = {
             data: {
                 labels: this.labels,
                 datasets: this.dataSets
+            },
+            heatmapData: {
+                dataPoints: this.dataPoints,
+                start: this.startDate,
+                end: this.endDate,
+                countLabel: this.countLabel
             }
         }
     },
@@ -181,23 +202,35 @@ export const mixin = {
 
     methods: {
         startChart () {
-            this.chart = new Chart(`#${this.id}`, {
-                data: this.data,
+            const baseOptions = {
                 type: this.type,
-                title: this.title,
+                discreteDomains: this.discreteDomains,
                 colors: this.colors,
                 height: this.height,
+                title: this.title,
+                isNavigable: this.isNavigable
+            }
+
+            const heatMapOptions = {
+                data: this.heatmapData
+            }
+
+            const chartOptions = {
+                data: this.data,
                 tooltipOptions: this.tooltipOptions,
-                isNavigable: this.isNavigable,
                 valuesOverPoints: this.valuesOverPoints,
                 barOptions: this.barOptions,
                 lineOptions: this.lineOptions,
                 axisOptions: this.axisOptions,
                 maxLegendPoints: this.maxLegendPoints,
                 maxSlices: this.maxSlices,
-                barOptions: this.barOptions,
-                discreteDomains: this.discreteDomains
-            })
+            }
+
+            const options = (this.type === 'heatmap')
+                ? {...baseOptions, ...heatMapOptions}
+                : {...baseOptions, ...chartOptions}
+
+            this.chart = new Chart(`#${this.id}`, options)
         },
 
         export () {
@@ -221,4 +254,3 @@ export const mixin = {
         }
     }
 }
-
