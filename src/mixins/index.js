@@ -249,6 +249,14 @@ export const mixin = {
             this.chart.updateDataset(datasetValues, index)
         },
 
+        update (data) {
+            this.chart.update(data)
+        },
+
+        export () {
+            this.chart.export()
+        },
+
         unbindWindowEvents () {
             this.chart.unbindWindowEvents()
         }
