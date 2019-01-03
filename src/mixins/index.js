@@ -227,8 +227,8 @@ export const mixin = {
             }
 
             const options = (this.type === 'heatmap')
-                ? {baseOptions, heatMapOptions}
-                : {baseOptions, chartOptions}
+                ? {...baseOptions, ...heatMapOptions}
+                : {...baseOptions, ...chartOptions}
 
             this.chart = new Chart(`#${this.id}`, options)
         },
