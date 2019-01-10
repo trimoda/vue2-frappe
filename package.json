@@ -9,5 +9,12 @@
   "private": false,
   "dependencies": {
     "frappe-charts": "^1.1.0"
+  },
+  "devDependencies": {
+    "vuepress": "^0.14.8"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   }
 }

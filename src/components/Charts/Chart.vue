@@ -14,9 +14,7 @@
             },
 
             dataSets: {
-                required: false,
-                type: Array,
-                default: () => []
+                required: false
             },
 
             labels: {
