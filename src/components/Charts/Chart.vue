@@ -81,16 +81,7 @@
             yRegions: {
                 required: false,
                 type: Array,
-                default: () => [
-                    {
-                        label: 'Region',
-                        start: -10,
-                        end: 50,
-                        options: {
-                            labelPos: 'right'
-                        }
-                    }
-                ]
+                default: () => null
             },
 
             colors: {
