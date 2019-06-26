@@ -67,15 +67,7 @@
             yMarkers: {
                 required: false,
                 type: Array,
-                default: () => [
-                    {
-                        label: 'Marker',
-                        value: 70,
-                        options: {
-                            labelPos: 'left'
-                        }
-                    }
-                ]
+                default: () => null
             },
 
             yRegions: {
@@ -180,7 +172,8 @@
                 data: {
                     labels: this.labels,
                     datasets: this.dataSets,
-                    yRegions: this.yRegions,
+                    yMarkers: this.yMarkers,
+                    yRegions: this.yRegions
                 },
                 heatmapData: {
                     dataPoints: this.dataPoints,
