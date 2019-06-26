@@ -182,13 +182,14 @@
                 }
             }
         },
-        
+
         data () {
             return {
                 chart: null,
                 data: {
                     labels: this.labels,
-                    datasets: this.dataSets
+                    datasets: this.dataSets,
+                    yRegions: this.yRegions,
                 },
                 heatmapData: {
                     dataPoints: this.dataPoints,
@@ -260,6 +261,6 @@
             unbindWindowEvents () {
                 this.chart.unbindWindowEvents()
             }
-        }        
+        }
     }
 </script>
