@@ -184,6 +184,21 @@
             }
         },
 
+        watch: {
+            labels() {
+                this.update()
+            },
+            dataSets() {
+                this.update()
+            },
+            yMarkers() {
+                this.update()
+            },
+            yRegions() {
+                this.update()
+            }
+        },
+
         mounted () {
             this.startChart()
         },
@@ -238,7 +253,13 @@
                 this.chart.updateDataset(datasetValues, index)
             },
 
-            update (data) {
+            update () {
+                const data = {
+                    labels: this.labels,
+                    datasets: this.dataSets,
+                    yMarkers: this.yMarkers,
+                    yRegions: this.yRegions
+                }
                 this.chart.update(data)
             },
 
