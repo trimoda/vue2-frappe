@@ -25,6 +25,18 @@ import Chart from 'vue2-frappe'
 Vue.use(Chart)
 ```
 
+or use the component directly
+
+```es6
+import { VueFrappe } from 'vue2-frappe'
+
+export default {
+  components: {
+    VueFrappe,
+  },
+};
+```
+
 Then in our Vue templates:
 
 ```html
