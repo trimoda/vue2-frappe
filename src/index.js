@@ -1,7 +1,7 @@
 import { Chart } from './components/Charts'
 
 export {
-  VueFrappe: Chart
+  Chart as VueFrappe
 }
 
 export default {
