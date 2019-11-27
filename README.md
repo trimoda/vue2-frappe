@@ -4,7 +4,13 @@
     <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer">
         <img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo">
     </a>
+    <a href="https://frappe.github.io/charts" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.com/frappe/design/blob/master/logos/charts-logo.svg" height="128">
+    </a>
 </p>
+
+
+[![npm version](https://badge.fury.io/js/vue2-frappe.svg)](https://badge.fury.io/js/vue2-frappe)
 
 This is a simple package to get using Frappe Charts within VueJS
 
